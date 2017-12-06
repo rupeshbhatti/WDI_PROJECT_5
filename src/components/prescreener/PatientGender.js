@@ -1,10 +1,15 @@
 import React from 'react';
 
-const PatientGender = () => {
+const PatientGender = ({ handleGenderRadio }) => {
 
   return(
     <div>
-      <h1>PatientGender</h1>
+      <form>
+        <h2>Select your gender</h2>
+        <input type="radio" name="sex" value="male" onChange={handleGenderRadio} required/> Male<br />
+        <input type="radio" name="sex" value="female" onChange={handleGenderRadio} required/> Female<br />
+      </form>
+      <hr />
     </div>
   );
 };
