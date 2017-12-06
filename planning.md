@@ -18,6 +18,7 @@
 * Login/register via email address
 * Login with Facebook
 * Login with Twitter
+* Show as you type suggestions for symptom search
 * Make an appointment with your GP? - ideally via the website, but a phone call to your GP would work too
 * SMS reminders of appointment
 * Find local health institutions in your area for follow-up: filter a map to show pharmacies / hospitals / walk-in centres

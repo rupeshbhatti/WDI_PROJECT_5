@@ -15,14 +15,18 @@ function getParsedSymptoms(req,res){
   infermedicaOptions.uri = 'https://api.infermedica.com/v2/parse/';
   infermedicaOptions.method = 'POST';
 
-  //req.body requires a single key of text in the req object
   infermedicaOptions.body = req.body;
 
-  rp(infermedicaOptions)
-    .then(data => {
-      return res.status(200).json(data);
-    })
-    .catch(err => console.log(err));
+  //req.body requires a single key of text in the req object
+  if (!req.body.text){
+    return res.status(500).json({ message: 'Missing text in request. '});
+  } else {
+    rp(infermedicaOptions)
+      .then(data => {
+        return res.status(200).json(data);
+      })
+      .catch(err => console.log(err));
+  }
 }
 
 function getDiagnosis(req,res){
@@ -32,11 +36,15 @@ function getDiagnosis(req,res){
   //req.body requires a pre-screener info: sex, age and symptoms/risk factors/lab test results (the last 2 are optional)
   infermedicaOptions.body = req.body;
 
-  rp(infermedicaOptions)
-    .then(data => {
-      return res.status(200).json(data);
-    })
-    .catch(err => console.log(err));
+  if (!req.body.sex || !req.body.age ) {
+    return res.status(500).json({ message: 'Missing mandatory data in request. '});
+  } else {
+    rp(infermedicaOptions)
+      .then(data => {
+        return res.status(200).json(data);
+      })
+      .catch(err => console.log(err));
+  }
 }
 
 function explain(req,res){
