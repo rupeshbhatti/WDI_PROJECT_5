@@ -1,9 +1,43 @@
 const express = require('express');
 const router = express.Router();
 
-const infermedicaProxy = require('../controllers/infermedicaProxy');
+const infermedicaProxies = require('../controllers/infermedicaProxies');
 
+const conditions  = require('../controllers/conditions');
+const labtests    = require('../controllers/labtests');
+const symptoms    = require('../controllers/symptoms');
+const riskfactors = require('../controllers/riskfactors');
+
+
+// Infermedica API proxy routes
 router.route('/getparsedsymptoms/')
-  .post(infermedicaProxy.parsedSymptoms);
+  .post(infermedicaProxies.getParsedSymptoms);
+
+router.route('/getdiagnosis/')
+  .post(infermedicaProxies.getDiagnosis);
+
+router.route('/explain/')
+  .post(infermedicaProxies.explain);
+
+
+// Condition routes via mongo
+router.route('/getconditions/:id')
+  .get(conditions.conditionsShow);
+
+
+// Labtest routes via mongo
+router.route('/getlabtests/:id')
+  .get(labtests.labtestsShow);
+
+
+// Symptom routes via mongo
+router.route('/getsymptoms/:id')
+  .get(symptoms.symptomsShow);
+
+
+// Riskfactor routes via mongo
+router.route('/getriskfactors/:id')
+  .get(riskfactors.riskfactorsShow);
+
 
 module.exports = router;
