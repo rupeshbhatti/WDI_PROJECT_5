@@ -1,7 +1,6 @@
 const rp = require('request-promise');
 
 const infermedicaOptions = {
-  method: 'POST',
   uri: 'https://api.infermedica.com/v2/',
   headers: {
     'App-Id': process.env.INFERMEDICA_APP_ID,
@@ -14,8 +13,9 @@ const infermedicaOptions = {
 
 function getParsedSymptoms(req,res){
   infermedicaOptions.uri = 'https://api.infermedica.com/v2/parse/';
-  // console.log(infermedicaOptions);
+  infermedicaOptions.method = 'POST';
 
+  //req.body requires a single key of text in the req object
   infermedicaOptions.body = req.body;
 
   rp(infermedicaOptions)
