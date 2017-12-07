@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-rangeslider';
 
 const PatientAge = ({ handleAgeSlider, value }) => {
-  
+
   return(
     <div className='slider'>
       <h2>Select your age</h2>
@@ -13,6 +13,7 @@ const PatientAge = ({ handleAgeSlider, value }) => {
         onChange={handleAgeSlider}
       />
       <div className='value'>{value}</div>
+      <hr />
     </div>
   );
 };
