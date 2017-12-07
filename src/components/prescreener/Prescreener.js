@@ -7,6 +7,7 @@ import PatientAge from './PatientAge';
 class Prescreener extends React.Component {
   state = {
     user: {
+      age: 30
     }
   }
 
@@ -15,7 +16,7 @@ class Prescreener extends React.Component {
   }
 
   handleAgeSlider = (e) => {
-    this.setState({ user: { age: e.target.value }});
+    this.setState({ user: { age: e }});
   }
 
   render() {
@@ -23,7 +24,10 @@ class Prescreener extends React.Component {
     return (
       <div>
         <PatientGender handleGenderRadio={this.handleGenderRadio} />
-        <PatientAge handleAgeSlider={this.handleAgeSlider}/>
+        <PatientAge
+          handleAgeSlider={this.handleAgeSlider}
+          value={this.state.user.age}
+        />
       </div>
     );
   }
