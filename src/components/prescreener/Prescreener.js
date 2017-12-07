@@ -8,17 +8,20 @@ import PatientCountries from './PatientCountries';
 class Prescreener extends React.Component {
   state = {
     user: {
+      sex: 'male',
       age: 30
     },
     evidence: []
   }
 
   handleGenderRadio = (e) => {
-    this.setState({ user: { sex: e.target.value } });
+    const user = Object.assign({}, this.state.user, { ['sex']: e.target.value });
+    this.setState({ user });
   }
 
   handleAgeSlider = (e) => {
-    this.setState({ user: { age: e }});
+    const user = Object.assign({}, this.state.user, { ['age']: e });
+    this.setState({ user });
   }
 
   handleCountrySelector = (e) => {
