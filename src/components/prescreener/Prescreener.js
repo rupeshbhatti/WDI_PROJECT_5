@@ -1,45 +1,72 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Axios from 'axios';
 
 import PatientGender from './PatientGender';
 import PatientAge from './PatientAge';
 import PatientCountries from './PatientCountries';
+import RiskFactors from './RiskFactors';
+import PatientSymptoms from './PatientSymptoms';
 
 class Prescreener extends React.Component {
   state = {
-    user: {
-      sex: 'male',
-      age: 30
-    },
-    evidence: []
+    sex: 'male',
+    age: 30,
+    evidence: [],
+    symptoms: [],
+    text: ''
   }
 
   handleGenderRadio = (e) => {
-    const user = Object.assign({}, this.state.user, { ['sex']: e.target.value });
-    this.setState({ user });
+    this.setState({ 'sex': e.target.value });
   }
 
   handleAgeSlider = (e) => {
-    const user = Object.assign({}, this.state.user, { ['age']: e });
-    this.setState({ user });
+    this.setState({ 'age': e });
   }
 
   handleCountrySelector = (e) => {
-    const selectedCountries = this.state.evidence;
+    const evidence = [];
 
     // if selected country isn't already in the array, then add
-    if (!selectedCountries.find(country => country.id === e.target.value)){
-      selectedCountries.push({ id: e.target.value, choice_id: 'present'});
-      this.setState({ evidence: selectedCountries });
+    if (!this.state.evidence.find(country => country.id === e.target.value)){
+      evidence.push({ id: e.target.value, choice_id: 'present'});
+      this.setState({ evidence: this.state.evidence.concat(evidence) });
     } else {
       // else remove the country i.e. toggle select
-      const filteredCountries = selectedCountries.filter(country => {
+      const filteredCountries = this.state.evidence.filter(country => {
         return country.id !== e.target.value;
       });
       this.setState({ evidence: filteredCountries });
     }
+  }
+
+  handleRiskFactorRadio = (e) => {
+    const evidence = [];
+    const [id, choiceId] = e.target.value.split('|');
 
 
+    if  (id.startsWith('p') && (!this.state.evidence.find(riskfactor => riskfactor.id === id)) ) {
+      evidence.push({ id, choice_id: choiceId });
+    }
+
+    this.setState({ evidence: evidence.concat(this.state.evidence) });
+  }
+
+  handleSymptomInput = (e) => {
+    this.setState({ text: e.target.value });
+  }
+
+  parseSymptoms = (e) => {
+    e && e.preventDefault();
+
+    Axios
+      .post('/api/getparsedsymptoms/', { text: this.state.text })
+      .then(res => {
+        const symptoms = [];
+        res.data.mentions.map((mention) => symptoms.push({ id: mention.id, choice_id: mention.choice_id }));
+        this.setState({ symptoms: this.state.symptoms.concat(symptoms) });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -49,11 +76,13 @@ class Prescreener extends React.Component {
         <PatientGender handleGenderRadio={this.handleGenderRadio} />
         <PatientAge
           handleAgeSlider={this.handleAgeSlider}
-          value={this.state.user.age}
+          value={this.state.age}
         />
-        <PatientCountries
-          handleCountrySelector={this.handleCountrySelector}
-        />
+        <PatientCountries handleCountrySelector={this.handleCountrySelector} />
+        <RiskFactors handleRiskFactorRadio={this.handleRiskFactorRadio}/>
+        <PatientSymptoms
+          handleSymptomInput={this.handleSymptomInput}
+          parseSymptoms={this.parseSymptoms}/>
       </div>
     );
   }

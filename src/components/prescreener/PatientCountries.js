@@ -17,6 +17,7 @@ const PatientCountries = ({handleCountrySelector}) => {
         <input onChange={handleCountrySelector} type="checkbox" name="countries" value="p_21" /> Middle East <br />
         <input onChange={handleCountrySelector} type="checkbox" name="countries" value="p_22" /> India, China and Southeastern Asia <br />
       </form>
+      <hr />
     </div>
   );
 
