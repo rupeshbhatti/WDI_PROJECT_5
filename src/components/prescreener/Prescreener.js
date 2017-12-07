@@ -12,7 +12,6 @@ class Prescreener extends React.Component {
     sex: 'male',
     age: 30,
     evidence: [],
-    symptoms: [],
     text: ''
   }
 
@@ -62,9 +61,14 @@ class Prescreener extends React.Component {
     Axios
       .post('/api/getparsedsymptoms/', { text: this.state.text })
       .then(res => {
-        const symptoms = [];
-        res.data.mentions.map((mention) => symptoms.push({ id: mention.id, choice_id: mention.choice_id }));
-        this.setState({ symptoms: this.state.symptoms.concat(symptoms) });
+        const evidence = [];
+        res.data.mentions && res.data.mentions.map((mention) => evidence.push({ id: mention.id, choice_id: mention.choice_id }));
+
+        if (evidence.length > 0){
+          this.setState({ evidence: this.state.evidence.concat(evidence) });
+        }
+        this.props.updateAppState(this.state);
+
       })
       .catch(err => console.log(err));
   }
@@ -73,13 +77,19 @@ class Prescreener extends React.Component {
 
     return (
       <div>
-        <PatientGender handleGenderRadio={this.handleGenderRadio} />
+        <PatientGender
+          handleGenderRadio={this.handleGenderRadio}
+        />
         <PatientAge
           handleAgeSlider={this.handleAgeSlider}
           value={this.state.age}
         />
-        <PatientCountries handleCountrySelector={this.handleCountrySelector} />
-        <RiskFactors handleRiskFactorRadio={this.handleRiskFactorRadio}/>
+        <PatientCountries
+          handleCountrySelector={this.handleCountrySelector}
+        />
+        <RiskFactors
+          handleRiskFactorRadio={this.handleRiskFactorRadio}
+        />
         <PatientSymptoms
           handleSymptomInput={this.handleSymptomInput}
           parseSymptoms={this.parseSymptoms}/>

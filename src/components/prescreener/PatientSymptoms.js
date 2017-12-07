@@ -7,7 +7,7 @@ const PatientSymptoms = ({handleSymptomInput, parseSymptoms }) => {
       <h2>Enter your symptoms below</h2>
       <form onSubmit={parseSymptoms}>
         <input type="text" name="symptoms" onChange={handleSymptomInput} />
-        <input type="submit" value="confirm" maxLength="1024"/>
+        <input type="submit" value="Continue to Diagnosis" maxLength="1024"/>
       </form>
       <hr />
     </div>
