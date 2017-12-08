@@ -4,12 +4,13 @@ import Axios from 'axios';
 // import { Switch, Route } from 'react-router-dom';
 
 import Prescreener from './components/prescreener/Prescreener';
+import Interview from './components/interview/Interview';
 
 class App extends React.Component {
   state = {
     diagnosis: {},
     conditions: [],
-    qusAndch: null
+    qusAndch: []
   }
 
   updateAppState = (PrescreenerComponentState) => {
@@ -26,9 +27,13 @@ class App extends React.Component {
       .post('/api/getdiagnosis/', PrescreenerComponentState )
       .then(res => {
         console.log(res);
-        // const symptoms = [];
-        // res.data.mentions.map((mention) => symptoms.push({ id: mention.id, choice_id: mention.choice_id }));
-        // this.setState({ symptoms: this.state.symptoms.concat(symptoms) });
+        this.setState(prevState => {
+          // console.log('QUESTION',res.data.question.text);
+          // console.log('CHOICES',res.data.question.items);
+          prevState.qusAndch.push({ question: res.data.question.text, choices: res.data.question.items });
+          console.log('PREVS', prevState);
+          return prevState;
+        });
       })
       .catch(err => console.log(err));
   }
@@ -39,6 +44,9 @@ class App extends React.Component {
     return (
       <div>
         <Prescreener updateAppState={this.updateAppState}/>
+        { this.state.qusAndch.length > 0 &&
+          <Interview questionAndAnswers={this.state.qusAndch} />
+        }
       </div>
     );
   }
