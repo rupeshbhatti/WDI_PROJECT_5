@@ -39,16 +39,19 @@ class Prescreener extends React.Component {
     }
   }
 
-  handleRiskFactorRadio = (e) => {
-    const evidence = [];
-    const [id, choiceId] = e.target.value.split('|');
+  handleRiskFactorRadio = ({ target: { value, id }}) => {
+    this.setState(prevState => {
+      const obj = prevState.evidence.find(riskfactor => riskfactor.id === id);
 
+      if (obj) {
+        if (value === 'unsure') prevState.evidence.splice(prevState.evidence.indexOf(obj), 1);
+        obj.choice_id = value;
+      } else {
+        if (value !== 'unsure') prevState.evidence.push({ id, choice_id: value });
+      }
 
-    if  (id.startsWith('p') && (!this.state.evidence.find(riskfactor => riskfactor.id === id)) ) {
-      evidence.push({ id, choice_id: choiceId });
-    }
-
-    this.setState({ evidence: evidence.concat(this.state.evidence) });
+      return prevState;
+    });
   }
 
   handleSymptomInput = (e) => {
