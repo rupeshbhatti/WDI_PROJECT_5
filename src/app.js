@@ -28,10 +28,7 @@ class App extends React.Component {
       .then(res => {
         console.log(res);
         this.setState(prevState => {
-          // console.log('QUESTION',res.data.question.text);
-          // console.log('CHOICES',res.data.question.items);
           prevState.qusAndch.push({ question: res.data.question.text, choices: res.data.question.items });
-          console.log('PREVS', prevState);
           return prevState;
         });
       })
