@@ -15,17 +15,17 @@ const RiskFactors = ({ handleRiskFactorRadio }) => {
         <input type="radio" name="smoker" id="p_28" value="absent" onChange={ handleRiskFactorRadio } required/> No<br />
         <input type="radio" name="smoker" id="p_28" value="unsure" onChange={ handleRiskFactorRadio } required/> Unsure<br />
         <h3>I have cholesterol</h3>
-        <input type="radio" name="cholesterol" value="p_10|present" onChange={ handleRiskFactorRadio } required/> Yes<br />
-        <input type="radio" name="cholesterol" value="p_10|absent" onChange={ handleRiskFactorRadio } required/> No<br />
-        <input type="radio" name="cholesterol" value="cholesterol|unsure" onChange={ handleRiskFactorRadio } required/> Unsure<br />
+        <input type="radio" name="cholesterol" id="p_10" value="present" onChange={ handleRiskFactorRadio } required/> Yes<br />
+        <input type="radio" name="cholesterol" id="p_10" value="absent" onChange={ handleRiskFactorRadio } required/> No<br />
+        <input type="radio" name="cholesterol" id="p_10" value="unsure" onChange={ handleRiskFactorRadio } required/> Unsure<br />
         <h3>I have hypertension</h3>
-        <input type="radio" name="hypertension" value="p_9|present" onChange={ handleRiskFactorRadio } required/> Yes<br />
-        <input type="radio" name="hypertension" value="p_9|absent" onChange={ handleRiskFactorRadio } required/> No<br />
-        <input type="radio" name="hypertension" value="hypertension|unsure" onChange={ handleRiskFactorRadio } required/> Unsure<br />
+        <input type="radio" name="hypertension" id="p_9" value="present" onChange={ handleRiskFactorRadio } required/> Yes<br />
+        <input type="radio" name="hypertension" id="p_9" value="absent" onChange={ handleRiskFactorRadio } required/> No<br />
+        <input type="radio" name="hypertension" id="p_9" value="unsure" onChange={ handleRiskFactorRadio } required/> Unsure<br />
         <h3>I am diabetic</h3>
-        <input type="radio" name="diabetic" value="p_8|present" onChange={ handleRiskFactorRadio } required/> Yes<br />
-        <input type="radio" name="diabetic" value="p_8|absent" onChange={ handleRiskFactorRadio } required/> No<br />
-        <input type="radio" name="diabetic" value="diabetic|unsure" onChange={ handleRiskFactorRadio } required/> Unsure<br />
+        <input type="radio" name="diabetic" id="p_8" value="present" onChange={ handleRiskFactorRadio } required/> Yes<br />
+        <input type="radio" name="diabetic" id="p_8" value="absent" onChange={ handleRiskFactorRadio } required/> No<br />
+        <input type="radio" name="diabetic" id="p_8" value="unsure" onChange={ handleRiskFactorRadio } required/> Unsure<br />
       </form>
       <hr />
     </div>
