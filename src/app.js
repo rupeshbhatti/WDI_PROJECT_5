@@ -5,6 +5,7 @@ import Axios from 'axios';
 
 import Prescreener from './components/prescreener/Prescreener';
 import Interview from './components/interview/Interview';
+import DisplayCondition from './components/interview/DisplayCondition';
 
 class App extends React.Component {
   state = {
@@ -24,11 +25,17 @@ class App extends React.Component {
       .post('/api/getdiagnosis/', PrescreenerComponentState )
       .then(res => {
         console.log('getdiagnosis res', res);
-        this.setState(prevState => {
-          prevState.qusAndch.push({ question: res.data.question.text, choices: res.data.question.items });
-          prevState.conditions = res.data.conditions;
-          return prevState;
-        });
+
+        if (res.data.should_stop) {
+          this.setState({ should_stop: true });
+        } else {
+          this.setState(prevState => {
+            prevState.qusAndch.push({ question: res.data.question.text, choices: res.data.question.items });
+            prevState.conditions = res.data.conditions;
+            return prevState;
+          });
+        }
+
       })
       .catch(err => console.log(err));
   }
@@ -50,11 +57,11 @@ class App extends React.Component {
       const obj = prevState.evidence.find(riskfactor => riskfactor.id === id);
 
       if (obj) {
-        if (value === 'unknown') prevState.evidence.splice(prevState.evidence.indexOf(obj), 1);
+        prevState.evidence.splice(prevState.evidence.indexOf(obj), 1);
         obj.choice_id = value;
-      } else {
-        if (value !== 'unknown') prevState.evidence.push({ id, choice_id: value });
       }
+
+      prevState.evidence.push({ id, choice_id: value });
 
       return prevState;
     });
@@ -71,6 +78,11 @@ class App extends React.Component {
             questionAndAnswers={this.state.qusAndch}
             radioHandler={this.handleDiagnosisQuestionRadio}
             continueInterview={this.continueInterview}
+          />
+        }
+        { this.state.should_stop &&
+          <DisplayCondition
+            condition={this.state.conditions[0]}
           />
         }
       </div>
