@@ -42,6 +42,8 @@ class App extends React.Component {
 
   continueInterview = (e) => {
     e && e.preventDefault();
+    console.log(e.target);
+    console.log('EVENTTTTTT',e);
     const stateSnapShot = Object.assign({}, this.state);
 
     delete stateSnapShot['conditions'];
