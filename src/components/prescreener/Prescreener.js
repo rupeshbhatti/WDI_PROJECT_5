@@ -28,7 +28,7 @@ class Prescreener extends React.Component {
 
     // if selected country isn't already in the array, then add
     if (!this.state.evidence.find(country => country.id === e.target.value)){
-      evidence.push({ id: e.target.value, choice_id: 'present'});
+      evidence.push({ id: e.target.value, choice_id: 'present', initial: true});
       this.setState({ evidence: this.state.evidence.concat(evidence) });
     } else {
       // else remove the country i.e. toggle select
@@ -44,11 +44,12 @@ class Prescreener extends React.Component {
       const obj = prevState.evidence.find(riskfactor => riskfactor.id === id);
 
       if (obj) {
-        if (value === 'unsure') prevState.evidence.splice(prevState.evidence.indexOf(obj), 1);
+        prevState.evidence.splice(prevState.evidence.indexOf(obj), 1);
         obj.choice_id = value;
-      } else {
-        if (value !== 'unsure') prevState.evidence.push({ id, choice_id: value });
       }
+
+      prevState.evidence.push({ id, choice_id: value, initial: true });
+
 
       return prevState;
     });
@@ -65,7 +66,7 @@ class Prescreener extends React.Component {
       .post('/api/getparsedsymptoms/', { text: this.state.text })
       .then(res => {
         const evidence = [];
-        res.data.mentions && res.data.mentions.map((mention) => evidence.push({ id: mention.id, choice_id: mention.choice_id }));
+        res.data.mentions && res.data.mentions.map((mention) => evidence.push({ id: mention.id, choice_id: mention.choice_id, initial: true }));
 
         if (evidence.length > 0){
           this.setState({ evidence: this.state.evidence.concat(evidence) });

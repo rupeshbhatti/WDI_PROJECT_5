@@ -26,6 +26,7 @@ class App extends React.Component {
         console.log('getdiagnosis res', res);
         this.setState(prevState => {
           prevState.qusAndch.push({ question: res.data.question.text, choices: res.data.question.items });
+          prevState.conditions = res.data.conditions;
           return prevState;
         });
       })
