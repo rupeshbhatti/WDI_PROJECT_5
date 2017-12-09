@@ -70,6 +70,7 @@ class Prescreener extends React.Component {
         if (evidence.length > 0){
           this.setState({ evidence: this.state.evidence.concat(evidence) });
         }
+        delete this.state['text'];
         this.props.updateAppState(this.state);
 
       })
