@@ -20,8 +20,12 @@ class PatientSymptoms extends React.Component {
   }
 
   setSelectedOption = (e) => {
-    this.setState({ selectedOption: e.value });
-    this.props.handleSymptomInput(e);
+    if (e){
+      this.setState({ selectedOption: e.value });
+      this.props.handleSymptomInput(e);
+    } else {
+      this.setState({ selectedOption: '' });
+    }
   }
 
   render(){
