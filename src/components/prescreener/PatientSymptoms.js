@@ -19,6 +19,12 @@ class PatientSymptoms extends React.Component {
       .catch(err => console.log(err));
   }
 
+  setSelectedOption = (e) => {
+    console.log('INCOMPONENT',e.value);
+    this.setState({ selectedOption: e.value });
+    this.props.handleSymptomInput(e);
+  }
+
   render(){
     const options = this.state.allSymptoms.value;
     let finalOptions;
@@ -41,8 +47,8 @@ class PatientSymptoms extends React.Component {
           {/* <input type="text" name="symptoms" onChange={this.props.handleSymptomInput} /> */}
           <Select
             name="symptoms"
-            value={this.state.selectedOption.value}
-            onChange={this.props.handleSymptomInput}
+            value={this.state.selectedOption}
+            onChange={this.setSelectedOption}
             options={finalOptions}
           />
           <input type="submit" value="Continue to Diagnosis"/>
