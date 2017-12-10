@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
-// import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
+import './scss/style.scss';
 
+import Home from './components/welcome/Home';
+import Navbar from './components/utilities/Navbar';
+import Routes from './components/utilities/Routes';
 import Prescreener from './components/prescreener/Prescreener';
 import Interview from './components/interview/Interview';
 import DisplayCondition from './components/interview/DisplayCondition';
@@ -73,6 +77,15 @@ class App extends React.Component {
   render() {
 
     return (
+      // <Router>
+      //   <div>
+      //     <Navbar />
+      //     <div>
+      //       <Routes
+      //       />
+      //     </div>
+      //   </div>
+      // </Router>
       <div>
         <Prescreener updateAppState={this.updateAppState}/>
         { this.state.qusAndch.length > 0 &&

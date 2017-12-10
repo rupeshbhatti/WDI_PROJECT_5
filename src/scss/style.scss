@@ -1,7 +1,22 @@
-#male:hover:focus {
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+
+* {
+  font-family: 'Cabin', sans-serif;
+}
+
+nav {
+  background-color: teal;
+  color: white;
+}
+
+#male {
   color: dodgerblue;
 }
 
-#female:hover:focus {
+#female {
   color: deeppink;
+}
+
+.rangeslider-horizontal .rangeslider__fill {
+    background-color: teal;
 }

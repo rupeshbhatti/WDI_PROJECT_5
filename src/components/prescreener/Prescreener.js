@@ -83,6 +83,10 @@ class Prescreener extends React.Component {
 
     return (
       <div>
+        <h2>Lets begin with a few prescreener questions...</h2>
+        <h2>Explain the process blah blah blah...</h2>
+        <button>Begin prescreener</button>
+
         <PatientGender
           handleGenderRadio={this.handleGenderRadio}
         />
@@ -90,6 +94,7 @@ class Prescreener extends React.Component {
           handleAgeSlider={this.handleAgeSlider}
           value={this.state.age}
         />
+
         <PatientCountries
           handleCountrySelector={this.handleCountrySelector}
         />

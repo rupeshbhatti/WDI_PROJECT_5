@@ -4,8 +4,8 @@ const RiskFactors = ({ handleRiskFactorRadio }) => {
 
   return (
     <div>
-      <h2>Select the appropriate options below</h2>
       <form>
+        <h2>Select the appropriate options below</h2>
         <h3>I am overweight</h3>
         <input type="radio" name="obese" id="p_7" value="present" onChange={ handleRiskFactorRadio } required/> Yes<br />
         <input type="radio" name="obese" id="p_7" value="absent" onChange={ handleRiskFactorRadio } required/> No<br />
@@ -26,6 +26,8 @@ const RiskFactors = ({ handleRiskFactorRadio }) => {
         <input type="radio" name="diabetic" id="p_8" value="present" onChange={ handleRiskFactorRadio } required/> Yes<br />
         <input type="radio" name="diabetic" id="p_8" value="absent" onChange={ handleRiskFactorRadio } required/> No<br />
         <input type="radio" name="diabetic" id="p_8" value="unknown" onChange={ handleRiskFactorRadio } required/> Unsure<br />
+        <br />
+        <button>Continue</button>
       </form>
       <hr />
     </div>

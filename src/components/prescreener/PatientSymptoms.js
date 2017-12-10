@@ -41,8 +41,8 @@ class PatientSymptoms extends React.Component {
 
     return(
       <div>
-        <h2>Enter your symptoms below</h2>
         <form onSubmit={this.props.parseSymptoms}>
+          <h2>Enter your symptoms below</h2>
           {/* <input type="text" name="symptoms" onChange={this.props.handleSymptomInput} /> */}
           <Select
             name="symptoms"
@@ -50,7 +50,8 @@ class PatientSymptoms extends React.Component {
             onChange={this.setSelectedOption}
             options={finalOptions}
           />
-          <input type="submit" value="Continue to Diagnosis"/>
+          <br />
+          <button>Complete prescreener</button>
         </form>
         <hr />
       </div>

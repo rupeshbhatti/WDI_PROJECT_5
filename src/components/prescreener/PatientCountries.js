@@ -169,23 +169,23 @@ class PatientCountries extends React.Component {
   render(){
     return(
       <div>
-        <h2>Select the region you live in and any regions you have visited in the last 12 months</h2>
-        <Chart
-          chartType="GeoChart"
-          data={this.state.data}
-          options={{
-            enableRegionInteractivity: true,
-            dataMode: 'regions'
-
-          }}
-          graph_id="GeoChart"
-          width="100%"
-          height="400px"
-          onClick={this.handleMapClick}
-          chartEvents={this.chartEvents}
-          legend_toggle
-        />
         <form>
+          <h2>Select the region you live in and any regions you have visited in the last 12 months</h2>
+          <Chart
+            chartType="GeoChart"
+            data={this.state.data}
+            options={{
+              enableRegionInteractivity: true,
+              dataMode: 'regions'
+
+            }}
+            graph_id="GeoChart"
+            width="100%"
+            height="400px"
+            onClick={this.handleMapClick}
+            chartEvents={this.chartEvents}
+            legend_toggle
+          />
           <input onChange={this.props.handleCountrySelector} type="checkbox" name="countries" value="p_13" /> North America <br />
           <input onChange={this.props.handleCountrySelector} type="checkbox" name="countries" value="p_14" /> Latin and South America <br />
           <input onChange={this.props.handleCountrySelector} type="checkbox" name="countries" value="p_15" /> Europe <br />
@@ -196,6 +196,8 @@ class PatientCountries extends React.Component {
           <input onChange={this.props.handleCountrySelector} type="checkbox" name="countries" value="p_20" /> Russia, Kazakhstan and Mongolia <br />
           <input onChange={this.props.handleCountrySelector} type="checkbox" name="countries" value="p_21" /> Middle East <br />
           <input onChange={this.props.handleCountrySelector} type="checkbox" name="countries" value="p_22" /> India, China and Southeastern Asia <br />
+          <br />
+          <button>Continue</button>
         </form>
         <hr />
       </div>
