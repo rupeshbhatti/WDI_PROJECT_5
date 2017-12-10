@@ -56,7 +56,9 @@ class Prescreener extends React.Component {
   }
 
   handleSymptomInput = (e) => {
-    this.setState({ text: e.target.value });
+    console.log(e.value);
+    //this.setState({ text: e.target.value });
+    this.setState({ text: e.value });
   }
 
   parseSymptoms = (e) => {

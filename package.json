@@ -29,6 +29,7 @@
     "react-icons-kit": "^1.0.7",
     "react-rangeslider": "^2.2.0",
     "react-router-dom": "^4.2.2",
+    "react-select": "^1.1.0",
     "request-promise": "^4.2.2"
   },
   "devDependencies": {

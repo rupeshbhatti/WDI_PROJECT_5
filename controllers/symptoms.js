@@ -1,5 +1,16 @@
 const Symptom = require('../models/symptom');
 
+function symptomsIndex(req,res,next){
+  Symptom
+    .find()
+    .exec()
+    .then(symptoms => {
+      //console.log(symptoms);
+      res.json(symptoms);
+    })
+    .catch(next);
+}
+
 function symptomsShow(req, res){
   Symptom
     .findOne({ id: req.params.id})
@@ -12,5 +23,6 @@ function symptomsShow(req, res){
 }
 
 module.exports = {
+  symptomsIndex: symptomsIndex,
   symptomsShow: symptomsShow
 };

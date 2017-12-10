@@ -34,6 +34,9 @@ router.route('/getlabtests/:id')
 router.route('/getsymptoms/:id')
   .get(symptoms.symptomsShow);
 
+router.route('/getsymptoms/')
+  .get(symptoms.symptomsIndex);
+
 
 // Riskfactor routes via mongo
 router.route('/getriskfactors/:id')
