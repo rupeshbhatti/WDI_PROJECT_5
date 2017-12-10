@@ -42,7 +42,7 @@ class DisplayCondition extends React.Component {
             <p> {this.state.condition.extras.hint}</p>
           </div>
         }
-        <h2>Probability: { Math.ceil(this.props.condition.probability * 100) } %</h2>
+        <h2>Probability: { Math.ceil(this.props.condition.probability * 100) }%</h2>
         <p>Please note that this advice is provided solely for informational purposes only. It does not constitute a qualified medical opinion.</p>
       </div>
     );
