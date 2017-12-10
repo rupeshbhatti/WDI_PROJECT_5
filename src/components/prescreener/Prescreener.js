@@ -56,8 +56,7 @@ class Prescreener extends React.Component {
   }
 
   handleSymptomInput = (e) => {
-    console.log(e.value);
-    //this.setState({ text: e.target.value });
+    //this.setState({ text: e.target.value}); USE THIS WITH NON-AUTOCOMPLETE INPUT FIELD
     this.setState({ text: e.value });
   }
 

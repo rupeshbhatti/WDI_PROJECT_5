@@ -20,7 +20,6 @@ class PatientSymptoms extends React.Component {
   }
 
   setSelectedOption = (e) => {
-    console.log('INCOMPONENT',e.value);
     this.setState({ selectedOption: e.value });
     this.props.handleSymptomInput(e);
   }
