@@ -15,95 +15,92 @@ class Prescreener extends React.Component {
     text: ''
   }
 
-  handleGenderRadio = (e) => {
-    this.setState({ 'sex': e.target.value });
-  }
+  // handleGenderRadio = (e) => {
+  //   this.setState({ 'sex': e.target.value });
+  // }
 
-  handleAgeSlider = (e) => {
-    this.setState({ 'age': e });
-  }
+  // handleAgeSlider = (e) => {
+  //   this.setState({ 'age': e });
+  // }
 
-  handleCountrySelector = (e) => {
-    const evidence = [];
+  // handleCountrySelector = (e) => {
+  //   const evidence = [];
+  //
+  //   // if selected country isn't already in the array, then add
+  //   if (!this.state.evidence.find(country => country.id === e.target.value)){
+  //     evidence.push({ id: e.target.value, choice_id: 'present', initial: true});
+  //     this.setState({ evidence: this.state.evidence.concat(evidence) });
+  //   } else {
+  //     // else remove the country i.e. toggle select
+  //     const filteredCountries = this.state.evidence.filter(country => {
+  //       return country.id !== e.target.value;
+  //     });
+  //     this.setState({ evidence: filteredCountries });
+  //   }
+  // }
 
-    // if selected country isn't already in the array, then add
-    if (!this.state.evidence.find(country => country.id === e.target.value)){
-      evidence.push({ id: e.target.value, choice_id: 'present', initial: true});
-      this.setState({ evidence: this.state.evidence.concat(evidence) });
-    } else {
-      // else remove the country i.e. toggle select
-      const filteredCountries = this.state.evidence.filter(country => {
-        return country.id !== e.target.value;
-      });
-      this.setState({ evidence: filteredCountries });
-    }
-  }
+  // handleRiskFactorRadio = ({ target: { value, id }}) => {
+  //   this.setState(prevState => {
+  //     const obj = prevState.evidence.find(riskfactor => riskfactor.id === id);
+  //
+  //     if (obj) {
+  //       prevState.evidence.splice(prevState.evidence.indexOf(obj), 1);
+  //       obj.choice_id = value;
+  //     }
+  //
+  //     prevState.evidence.push({ id, choice_id: value, initial: true });
+  //
+  //
+  //     return prevState;
+  //   });
+  // }
 
-  handleRiskFactorRadio = ({ target: { value, id }}) => {
-    this.setState(prevState => {
-      const obj = prevState.evidence.find(riskfactor => riskfactor.id === id);
-
-      if (obj) {
-        prevState.evidence.splice(prevState.evidence.indexOf(obj), 1);
-        obj.choice_id = value;
-      }
-
-      prevState.evidence.push({ id, choice_id: value, initial: true });
-
-
-      return prevState;
-    });
-  }
-
-  handleSymptomInput = (e) => {
-    //this.setState({ text: e.target.value}); USE THIS WITH NON-AUTOCOMPLETE INPUT FIELD
-    this.setState({ text: e.value });
-  }
-
-  parseSymptoms = (e) => {
-    e && e.preventDefault();
-
-    Axios
-      .post('/api/getparsedsymptoms/', { text: this.state.text })
-      .then(res => {
-        const evidence = [];
-        res.data.mentions && res.data.mentions.map((mention) => evidence.push({ id: mention.id, choice_id: mention.choice_id, initial: true }));
-
-        if (evidence.length > 0){
-          this.setState({ evidence: this.state.evidence.concat(evidence) });
-        }
-        delete this.state['text'];
-        this.props.updateAppState(this.state);
-
-      })
-      .catch(err => console.log(err));
-  }
+  // handleSymptomInput = (e) => {
+  //   //this.setState({ text: e.target.value}); USE THIS WITH NON-AUTOCOMPLETE INPUT FIELD
+  //   this.setState({ text: e.value });
+  // }
+  //
+  // parseSymptoms = (e) => {
+  //   e && e.preventDefault();
+  //
+  //   Axios
+  //     .post('/api/getparsedsymptoms/', { text: this.state.text })
+  //     .then(res => {
+  //       const evidence = [];
+  //       res.data.mentions && res.data.mentions.map((mention) => evidence.push({ id: mention.id, choice_id: mention.choice_id, initial: true }));
+  //
+  //       if (evidence.length > 0){
+  //         this.setState({ evidence: this.state.evidence.concat(evidence) });
+  //       }
+  //       delete this.state['text'];
+  //       this.props.updateAppState(this.state);
+  //
+  //     })
+  //     .catch(err => console.log(err));
+  // }
 
   render() {
 
     return (
       <div>
-        <h2>Lets begin with a few prescreener questions...</h2>
-        <h2>Explain the process blah blah blah...</h2>
-        <button>Begin prescreener</button>
 
-        <PatientGender
+        {/* <PatientGender
           handleGenderRadio={this.handleGenderRadio}
-        />
-        <PatientAge
+        /> */}
+        {/* <PatientAge
           handleAgeSlider={this.handleAgeSlider}
           value={this.state.age}
-        />
+        /> */}
 
-        <PatientCountries
+        {/* <PatientCountries
           handleCountrySelector={this.handleCountrySelector}
-        />
-        <RiskFactors
+        /> */}
+        {/* <RiskFactors
           handleRiskFactorRadio={this.handleRiskFactorRadio}
-        />
-        <PatientSymptoms
+        /> */}
+        {/* <PatientSymptoms
           handleSymptomInput={this.handleSymptomInput}
-          parseSymptoms={this.parseSymptoms}/>
+          parseSymptoms={this.parseSymptoms}/> */}
       </div>
     );
   }

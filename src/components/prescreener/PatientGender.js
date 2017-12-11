@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Icon from 'react-icons-kit';
 import { man, woman } from 'react-icons-kit/icomoon';
 
-const PatientGender = ({ handleGenderRadio }) => {
+const PatientGender = ({ handleGenderRadio, switchVisibleComponent }) => {
 
   return(
     <div>
@@ -12,7 +12,7 @@ const PatientGender = ({ handleGenderRadio }) => {
         <input type="radio" name="sex" value="male" onChange={handleGenderRadio} required/><Icon id="male" icon={man} size={128} />
         <input type="radio" name="sex" value="female" onChange={handleGenderRadio} required/><Icon id="female" icon={woman} size={128} />
         <br />
-        <button>Continue</button>
+        <button onClick={switchVisibleComponent} value="PatientAge">Continue</button>
       </form>
       <hr />
     </div>

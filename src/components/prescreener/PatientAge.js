@@ -2,7 +2,7 @@ import React from 'react';
 import Slider from 'react-rangeslider';
 import { Link } from 'react-router-dom';
 
-const PatientAge = ({ handleAgeSlider, value }) => {
+const PatientAge = ({ handleAgeSlider, value, switchVisibleComponent }) => {
 
   return(
     <div className='slider'>
@@ -16,7 +16,7 @@ const PatientAge = ({ handleAgeSlider, value }) => {
         />
         <div className='value'>{value}</div>
         <br />
-        <button>Continue</button>
+        <button onClick={switchVisibleComponent} value="PatientCountries">Continue</button>
       </form>
       <hr />
     </div>

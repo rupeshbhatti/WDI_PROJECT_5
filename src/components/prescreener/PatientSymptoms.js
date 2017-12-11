@@ -55,7 +55,7 @@ class PatientSymptoms extends React.Component {
             options={finalOptions}
           />
           <br />
-          <button>Complete prescreener</button>
+          <button >Complete prescreener</button>
         </form>
         <hr />
       </div>

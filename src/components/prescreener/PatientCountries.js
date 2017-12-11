@@ -161,7 +161,10 @@ class PatientCountries extends React.Component {
     {
       eventName: 'select',
       callback(Chart){
-        console.log('Selected ', Chart.chart.getSelection());
+        const row = Chart.chart.getSelection()[0].row;
+        // console.log(this.state.data[row][0]);
+
+
       }
     }
   ];
@@ -182,7 +185,6 @@ class PatientCountries extends React.Component {
             graph_id="GeoChart"
             width="100%"
             height="400px"
-            onClick={this.handleMapClick}
             chartEvents={this.chartEvents}
             legend_toggle
           />
@@ -197,7 +199,7 @@ class PatientCountries extends React.Component {
           <input onChange={this.props.handleCountrySelector} type="checkbox" name="countries" value="p_21" /> Middle East <br />
           <input onChange={this.props.handleCountrySelector} type="checkbox" name="countries" value="p_22" /> India, China and Southeastern Asia <br />
           <br />
-          <button>Continue</button>
+          <button onClick={this.props.switchVisibleComponent} value="RiskFactors">Continue</button>
         </form>
         <hr />
       </div>

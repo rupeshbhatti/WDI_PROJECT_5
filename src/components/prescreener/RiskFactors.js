@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RiskFactors = ({ handleRiskFactorRadio }) => {
+const RiskFactors = ({ handleRiskFactorRadio, switchVisibleComponent }) => {
 
   return (
     <div>
@@ -27,7 +27,7 @@ const RiskFactors = ({ handleRiskFactorRadio }) => {
         <input type="radio" name="diabetic" id="p_8" value="absent" onChange={ handleRiskFactorRadio } required/> No<br />
         <input type="radio" name="diabetic" id="p_8" value="unknown" onChange={ handleRiskFactorRadio } required/> Unsure<br />
         <br />
-        <button>Continue</button>
+        <button onClick={switchVisibleComponent} value="PatientSymptoms">Continue</button>
       </form>
       <hr />
     </div>

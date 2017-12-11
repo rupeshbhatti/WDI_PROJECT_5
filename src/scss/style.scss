@@ -1,11 +1,20 @@
+// @import 'reset';
+@import 'home';
 @import url('https://fonts.googleapis.com/css?family=Cabin');
+
+html, body {
+  height: 100v;
+  width: 100v;
+}
 
 * {
   font-family: 'Cabin', sans-serif;
 }
 
 nav {
-  background-color: teal;
+  img {
+    height: 100vu;
+  }
   color: white;
 }
 
