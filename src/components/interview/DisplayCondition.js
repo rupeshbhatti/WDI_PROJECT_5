@@ -45,7 +45,7 @@ class DisplayCondition extends React.Component {
           </div>
         }
         <h2>Probability: { Math.ceil(this.props.condition.probability * 100) }%</h2>
-        <GooglePlaces />
+        {/* <GooglePlaces /> */}
         <p>Please note that this advice is provided solely for informational purposes only. It does not constitute a qualified medical opinion.</p>
       </div>
     );

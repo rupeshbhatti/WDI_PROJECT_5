@@ -39,17 +39,19 @@ class App extends React.Component {
     this.setState({ 'age': e });
   }
 
-  handleCountrySelector = (e) => {
+  handleCountrySelector = (countryCode) => {
+    console.log('COUNTRYCODE',countryCode);
+
     const evidence = [];
 
     // if selected country isn't already in the array, then add
-    if (!this.state.evidence.find(country => country.id === e.target.value)){
-      evidence.push({ id: e.target.value, choice_id: 'present', initial: true});
+    if (!this.state.evidence.find(country => country.id === countryCode)){
+      evidence.push({ id: countryCode, choice_id: 'present', initial: true});
       this.setState({ evidence: this.state.evidence.concat(evidence) });
     } else {
       // else remove the country i.e. toggle select
       const filteredCountries = this.state.evidence.filter(country => {
-        return country.id !== e.target.value;
+        return country.id !== countryCode;
       });
       this.setState({ evidence: filteredCountries });
     }
@@ -212,9 +214,9 @@ class App extends React.Component {
             condition={this.state.conditions[0]}
           />
         }
-        {this.state.visibleComponent === 'GooglePlaces' &&
+        {/* {this.state.visibleComponent === 'GooglePlaces' &&
           <GooglePlaces />
-        }
+        } */}
       </div>
     );
   }
