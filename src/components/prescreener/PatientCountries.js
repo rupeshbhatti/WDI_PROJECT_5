@@ -201,7 +201,6 @@ class PatientCountries extends React.Component {
           <br />
           <button onClick={this.props.switchVisibleComponent} value="RiskFactors">Continue</button>
         </form>
-        <hr />
       </div>
     );
   }

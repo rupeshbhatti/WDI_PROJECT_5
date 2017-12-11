@@ -1,6 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
 
+import GooglePlaces from './GooglePlaces';
+
 class DisplayCondition extends React.Component {
   state = {
     condition: {},
@@ -43,6 +45,7 @@ class DisplayCondition extends React.Component {
           </div>
         }
         <h2>Probability: { Math.ceil(this.props.condition.probability * 100) }%</h2>
+        <GooglePlaces />
         <p>Please note that this advice is provided solely for informational purposes only. It does not constitute a qualified medical opinion.</p>
       </div>
     );

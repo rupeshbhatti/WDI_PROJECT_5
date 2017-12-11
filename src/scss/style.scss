@@ -1,21 +1,9 @@
 // @import 'reset';
 @import 'home';
-@import url('https://fonts.googleapis.com/css?family=Cabin');
-
-html, body {
-  height: 100v;
-  width: 100v;
-}
+@import 'fonts';
 
 * {
   font-family: 'Cabin', sans-serif;
-}
-
-nav {
-  img {
-    height: 100vu;
-  }
-  color: white;
 }
 
 #male {
@@ -27,5 +15,5 @@ nav {
 }
 
 .rangeslider-horizontal .rangeslider__fill {
-    background-color: teal;
+    background-color: #0095c8;
 }

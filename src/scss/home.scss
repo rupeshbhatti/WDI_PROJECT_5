@@ -4,7 +4,14 @@
   -o-background-size: cover;
   background-size: cover;
   background-color: #0095c8;
-  padding: 400px 500px;
+  height: 100vh;
+
+  img {
+    margin: auto;
+    position:fixed;
+    top: 25%;
+    left: 35%;
+  }
 }
 
 @-moz-keyframes bounce {
@@ -58,7 +65,7 @@
 
 .arrow {
   position: fixed;
-  bottom: 0;
+  bottom: 100px;
   left: 50%;
   margin-left: -20px;
   width: 40px;

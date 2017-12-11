@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Home = ({switchVisibleComponent}) => {
 
@@ -7,11 +6,9 @@ const Home = ({switchVisibleComponent}) => {
     <div id="HomeLogo">
       <form>
         <img src="/assets/DrWebberLogo.png" />
-        {/* <div className="arrow bounce"></div> */}
         <button onClick={switchVisibleComponent} value="PatientGender">Continue</button>
+        {/* <div onClick={switchVisibleComponent} value="PatientGender" className="arrow bounce"></div> */}
       </form>
-      {/* <img src="/assets/DrWebberLogo.png"/> */}
-      {/* <button><Link to={'/prescreener'}>Begin</Link></button> */}
     </div>
   );
 };

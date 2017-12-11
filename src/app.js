@@ -12,6 +12,7 @@ import RiskFactors from './components/prescreener/RiskFactors';
 import PatientSymptoms from './components/prescreener/PatientSymptoms';
 import Interview from './components/interview/Interview';
 import DisplayCondition from './components/interview/DisplayCondition';
+//import GooglePlaces from './components/interview/GooglePlaces';
 
 class App extends React.Component {
   state = {
@@ -25,8 +26,9 @@ class App extends React.Component {
   }
 
   switchVisibleComponent = (e) => {
+    console.log(e.target.value);
     e.preventDefault();
-    this.setState({ visibleComponent: e.target.value });
+    e.target.value && this.setState({ visibleComponent: e.target.value });
   }
 
   handleGenderRadio = (e) => {
@@ -197,8 +199,7 @@ class App extends React.Component {
             switchVisibleComponent={this.switchVisibleComponent}
           />
         }
-
-        { this.state.visibleComponent === 'Interview' && this.state.qusAndch.length > 0 &&
+        {this.state.visibleComponent === 'Interview' && this.state.qusAndch.length > 0 &&
           <Interview
             questionAndAnswers={this.state.qusAndch}
             radioHandler={this.handleDiagnosisQuestionRadio}
@@ -206,10 +207,13 @@ class App extends React.Component {
             parseSymptoms={this.parseSymptoms}
           />
         }
-        { this.state.visibleComponent === 'DisplayCondition' &&
+        {this.state.visibleComponent === 'DisplayCondition' &&
           <DisplayCondition
             condition={this.state.conditions[0]}
           />
+        }
+        {this.state.visibleComponent === 'GooglePlaces' &&
+          <GooglePlaces />
         }
       </div>
     );

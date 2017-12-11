@@ -57,7 +57,6 @@ class PatientSymptoms extends React.Component {
           <br />
           <button >Complete prescreener</button>
         </form>
-        <hr />
       </div>
     );
   }

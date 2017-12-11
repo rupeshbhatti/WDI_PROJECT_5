@@ -29,7 +29,6 @@ const RiskFactors = ({ handleRiskFactorRadio, switchVisibleComponent }) => {
         <br />
         <button onClick={switchVisibleComponent} value="PatientSymptoms">Continue</button>
       </form>
-      <hr />
     </div>
   );
 };

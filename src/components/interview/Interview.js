@@ -18,7 +18,6 @@ const Interview = ({ questionAndAnswers, radioHandler, continueInterview }) => {
         </div>
       )}
       <input type="submit" value="Continue" />
-      <hr />
     </form>
   );
 };
