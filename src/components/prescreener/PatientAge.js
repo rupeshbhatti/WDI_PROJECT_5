@@ -21,7 +21,7 @@ const PatientAge = ({ handleAgeSlider, value, switchVisibleComponent }) => {
             <br />
           </div>
           <hr />
-          <button onClick={switchVisibleComponent} value="PatientCountries">Continue</button>
+          <button className="button" onClick={switchVisibleComponent} value="PatientCountries"><span>Continue</span></button>
         </form>
       </div>
     </div>
