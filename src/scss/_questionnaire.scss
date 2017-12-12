@@ -1,0 +1,27 @@
+@import 'fonts';
+
+.questionnaire {
+  background-color: white;
+  border: teal solid 1px;
+  border-radius: 9px;
+  padding: 40px;
+  width: 75%;
+  margin: auto;
+
+  .content{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .questionContent{
+    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    label{
+      font-family: 'Cabin', sans-serif;
+      padding-left: 10px;
+    }
+  }
+}

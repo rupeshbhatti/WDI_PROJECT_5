@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
+import scollToComponent from 'react-scroll-to-component';
+
 import './scss/style.scss';
 
 import Home from './components/welcome/Home';
@@ -22,13 +24,21 @@ class App extends React.Component {
     evidence: [],
     conditions: [],
     qusAndch: [],
-    visibleComponent: 'Home'
+    visibleComponent: ['Home']
   }
 
   switchVisibleComponent = (e) => {
-    console.log(e.target.value);
     e.preventDefault();
-    e.target.value && this.setState({ visibleComponent: e.target.value });
+
+    const newArr = [];
+    newArr.push(e.target.value);
+    e.target.value && this.setState(prevState => {
+      prevState.visibleComponent = prevState.visibleComponent.concat(newArr);
+
+      return prevState;
+    });
+
+
   }
 
   handleGenderRadio = (e) => {
@@ -40,8 +50,6 @@ class App extends React.Component {
   }
 
   handleCountrySelector = (countryCode) => {
-    console.log('COUNTRYCODE',countryCode);
-
     const evidence = [];
 
     // if selected country isn't already in the array, then add
@@ -108,12 +116,10 @@ class App extends React.Component {
     delete obj['qusAndch'];
     delete obj['visibleComponent'];
     delete obj['conditions'];
-    console.log(obj);
 
     Axios
       .post('/api/getdiagnosis/', obj )
       .then(res => {
-        console.log('getdiagnosis res', res);
 
         if (res.data.should_stop) {
           this.setState({ should_stop: true, visibleComponent: 'DisplayCondition' });
@@ -121,7 +127,7 @@ class App extends React.Component {
           this.setState(prevState => {
             prevState.qusAndch.push({ question: res.data.question.text, choices: res.data.question.items });
             prevState.conditions = res.data.conditions;
-            prevState.visibleComponent = 'Interview';
+            prevState.visibleComponent.push('Interview');
             return prevState;
           });
         }
@@ -132,14 +138,11 @@ class App extends React.Component {
 
   continueInterview = (e) => {
     e && e.preventDefault();
-    console.log(e.target);
-    console.log('EVENTTTTTT',e);
     const stateSnapShot = Object.assign({}, this.state);
 
     delete stateSnapShot['conditions'];
     delete stateSnapShot['qusAndch'];
-    // console.log('stateSnapShot',stateSnapShot);
-    // console.log('this.state', this.state);
+
     this.getDiagnosis(stateSnapShot);
   }
 
@@ -164,44 +167,44 @@ class App extends React.Component {
     return (
       <div>
         {/* <Navbar /> */}
-        {this.state.visibleComponent === 'Home' &&
+        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('Home')  &&
           <Home
             switchVisibleComponent={this.switchVisibleComponent}
           />
         }
-        {this.state.visibleComponent === 'PatientGender' &&
+        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('PatientGender') &&
           <PatientGender
             switchVisibleComponent={this.switchVisibleComponent}
             handleGenderRadio={this.handleGenderRadio}
           />
         }
-        {this.state.visibleComponent === 'PatientAge' &&
+        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('PatientAge') &&
           <PatientAge
             handleAgeSlider={this.handleAgeSlider}
             value={this.state.age}
             switchVisibleComponent={this.switchVisibleComponent}
           />
         }
-        {this.state.visibleComponent === 'PatientCountries' &&
+        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('PatientCountries') &&
           <PatientCountries
             handleCountrySelector={this.handleCountrySelector}
             switchVisibleComponent={this.switchVisibleComponent}
           />
         }
-        {this.state.visibleComponent === 'RiskFactors' &&
+        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('RiskFactors') &&
           <RiskFactors
             handleRiskFactorRadio={this.handleRiskFactorRadio}
             switchVisibleComponent={this.switchVisibleComponent}
           />
         }
-        {this.state.visibleComponent === 'PatientSymptoms' &&
+        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('PatientSymptoms') &&
           <PatientSymptoms
             handleSymptomInput={this.handleSymptomInput}
             parseSymptoms={this.parseSymptoms}
             switchVisibleComponent={this.switchVisibleComponent}
           />
         }
-        {this.state.visibleComponent === 'Interview' && this.state.qusAndch.length > 0 &&
+        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('Interview') && this.state.qusAndch.length > 0 &&
           <Interview
             questionAndAnswers={this.state.qusAndch}
             radioHandler={this.handleDiagnosisQuestionRadio}
@@ -209,7 +212,7 @@ class App extends React.Component {
             parseSymptoms={this.parseSymptoms}
           />
         }
-        {this.state.visibleComponent === 'DisplayCondition' &&
+        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('DisplayCondition') &&
           <DisplayCondition
             condition={this.state.conditions[0]}
           />

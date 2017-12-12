@@ -1,5 +1,7 @@
 import React from 'react';
 
+import '../../scss/home.scss';
+
 const Home = ({switchVisibleComponent}) => {
 
   return (
@@ -7,7 +9,7 @@ const Home = ({switchVisibleComponent}) => {
       <form>
         <img src="/assets/DrWebberLogo.png" />
         <button onClick={switchVisibleComponent} value="PatientGender">Continue</button>
-        <div onClick={switchVisibleComponent} value="PatientGender" className="arrow bounce"></div> 
+        <div onClick={switchVisibleComponent} value="PatientGender" className="arrow bounce"></div>
       </form>
     </div>
   );

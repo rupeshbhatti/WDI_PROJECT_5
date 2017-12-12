@@ -3,6 +3,8 @@ import Select from 'react-select';
 import Axios from 'axios';
 import 'react-select/dist/react-select.css';
 
+import '../../scss/patientSymptoms.scss';
+
 class PatientSymptoms extends React.Component {
   state = {
     allSymptoms: {},
@@ -45,18 +47,22 @@ class PatientSymptoms extends React.Component {
 
     return(
       <div>
-        <form onSubmit={this.props.parseSymptoms}>
-          <h2>Enter your symptoms below</h2>
-          {/* <input type="text" name="symptoms" onChange={this.props.handleSymptomInput} /> */}
-          <Select
-            name="symptoms"
-            value={this.state.selectedOption}
-            onChange={this.setSelectedOption}
-            options={finalOptions}
-          />
-          <br />
-          <button >Complete prescreener</button>
-        </form>
+        <div className="questionnaire">
+          <form onSubmit={this.props.parseSymptoms}>
+            <h1>Enter your symptoms below</h1>
+            <div className="content">
+              {/* <input type="text" name="symptoms" onChange={this.props.handleSymptomInput} /> */}
+              <Select
+                name="symptoms"
+                value={this.state.selectedOption}
+                onChange={this.setSelectedOption}
+                options={finalOptions}
+              />
+              <br />
+            </div>
+            <button>Complete prescreener</button>
+          </form>
+        </div>
       </div>
     );
   }

@@ -55,6 +55,7 @@ function explain(req,res){
 
   rp(infermedicaOptions)
     .then(data => {
+      console.log('EXPLAIN----------------------------------------------',data);
       return res.status(200).json(data);
     })
     .catch(err => console.log(err));
