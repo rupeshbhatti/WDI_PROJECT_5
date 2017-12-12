@@ -30,23 +30,27 @@ class DisplayCondition extends React.Component {
   render(){
 
     return(
-      <div>
-        <h1>Result of your consultation</h1>
-        <h2>Name of your condition: {this.props.condition.common_name}</h2>
-        { this.state.wikiMedia_summary &&
-          <p>{ this.state.wikiMedia_summary }</p>
-        }
-        { this.state.condition.acuteness && this.state.condition.severity &&
-          <div>
-            <h3>Acuteness: {(this.state.condition.acuteness).replace(/_/g, ' ')}</h3>
-            <h3>Severity: {this.state.condition.severity}</h3>
-            <h3>Suggested next steps: </h3>
-            <p> {this.state.condition.extras.hint}</p>
+      <div id="displayCondition">
+        <div className="questionnaire">
+          <h1>Result of your consultation</h1>
+          <div className="content">
+            <h1>Name of your condition: {this.props.condition.common_name}</h1>
+            { this.state.wikiMedia_summary &&
+              <p>{ this.state.wikiMedia_summary }</p>
+            }
+            { this.state.condition.acuteness && this.state.condition.severity &&
+              <div>
+                <h3>Acuteness: {(this.state.condition.acuteness).replace(/_/g, ' ')}</h3>
+                <h3>Severity: {this.state.condition.severity}</h3>
+                <h3>Suggested next steps: </h3>
+                <p> {this.state.condition.extras.hint}</p>
+              </div>
+            }
+            <h2>Probability: { Math.ceil(this.props.condition.probability * 100) }%</h2>
+            {/* <GooglePlaces /> */}
+            <p>Please note that this advice is provided solely for informational purposes only. It does not constitute a qualified medical opinion.</p>
           </div>
-        }
-        <h2>Probability: { Math.ceil(this.props.condition.probability * 100) }%</h2>
-        {/* <GooglePlaces /> */}
-        <p>Please note that this advice is provided solely for informational purposes only. It does not constitute a qualified medical opinion.</p>
+        </div>
       </div>
     );
   }

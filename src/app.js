@@ -122,7 +122,12 @@ class App extends React.Component {
       .then(res => {
 
         if (res.data.should_stop) {
-          this.setState({ should_stop: true, visibleComponent: 'DisplayCondition' });
+          this.setState( prevState => {
+            prevState.visibleComponent.push('DisplayCondition');
+            return prevState;
+          });
+          this.setState({ should_stop: true });
+          
         } else {
           this.setState(prevState => {
             prevState.qusAndch.push({ question: res.data.question.text, choices: res.data.question.items });
