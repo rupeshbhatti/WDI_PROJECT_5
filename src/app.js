@@ -29,6 +29,7 @@ class App extends React.Component {
 
   switchVisibleComponent = (e) => {
     e.preventDefault();
+    const element = document.getElementById(e.target.value);
 
     const newArr = [];
     newArr.push(e.target.value);
@@ -38,8 +39,13 @@ class App extends React.Component {
       return prevState;
     });
 
-
+    scollToComponent(element, {
+      offset: 0,
+      align: 'middle',
+      duration: 1500
+    });
   }
+
 
   handleGenderRadio = (e) => {
     this.setState({ 'sex': e.target.value });
@@ -127,7 +133,7 @@ class App extends React.Component {
             return prevState;
           });
           this.setState({ should_stop: true });
-          
+
         } else {
           this.setState(prevState => {
             prevState.qusAndch.push({ question: res.data.question.text, choices: res.data.question.items });
@@ -171,60 +177,45 @@ class App extends React.Component {
 
     return (
       <div>
-        {/* <Navbar /> */}
-        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('Home')  &&
-          <Home
-            switchVisibleComponent={this.switchVisibleComponent}
-          />
-        }
-        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('PatientGender') &&
-          <PatientGender
-            switchVisibleComponent={this.switchVisibleComponent}
-            handleGenderRadio={this.handleGenderRadio}
-          />
-        }
-        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('PatientAge') &&
-          <PatientAge
-            handleAgeSlider={this.handleAgeSlider}
-            value={this.state.age}
-            switchVisibleComponent={this.switchVisibleComponent}
-          />
-        }
-        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('PatientCountries') &&
-          <PatientCountries
-            handleCountrySelector={this.handleCountrySelector}
-            switchVisibleComponent={this.switchVisibleComponent}
-          />
-        }
-        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('RiskFactors') &&
-          <RiskFactors
-            handleRiskFactorRadio={this.handleRiskFactorRadio}
-            switchVisibleComponent={this.switchVisibleComponent}
-          />
-        }
-        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('PatientSymptoms') &&
-          <PatientSymptoms
-            handleSymptomInput={this.handleSymptomInput}
-            parseSymptoms={this.parseSymptoms}
-            switchVisibleComponent={this.switchVisibleComponent}
-          />
-        }
-        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('Interview') && this.state.qusAndch.length > 0 &&
-          <Interview
-            questionAndAnswers={this.state.qusAndch}
-            radioHandler={this.handleDiagnosisQuestionRadio}
-            continueInterview={this.continueInterview}
-            parseSymptoms={this.parseSymptoms}
-          />
-        }
-        {this.state.visibleComponent[this.state.visibleComponent.length -1 ] === ('DisplayCondition') &&
-          <DisplayCondition
-            condition={this.state.conditions[0]}
-          />
-        }
-        {/* {this.state.visibleComponent === 'GooglePlaces' &&
-          <GooglePlaces />
-        } */}
+        <Home
+          switchVisibleComponent={this.switchVisibleComponent}
+        />
+        <PatientGender
+          switchVisibleComponent={this.switchVisibleComponent}
+          handleGenderRadio={this.handleGenderRadio}
+        />
+        <PatientAge
+          handleAgeSlider={this.handleAgeSlider}
+          value={this.state.age}
+          switchVisibleComponent={this.switchVisibleComponent}
+        />
+
+        <PatientCountries
+          handleCountrySelector={this.handleCountrySelector}
+          switchVisibleComponent={this.switchVisibleComponent}
+        />
+        <RiskFactors
+          handleRiskFactorRadio={this.handleRiskFactorRadio}
+          switchVisibleComponent={this.switchVisibleComponent}
+        />
+
+        <PatientSymptoms
+          handleSymptomInput={this.handleSymptomInput}
+          parseSymptoms={this.parseSymptoms}
+          switchVisibleComponent={this.switchVisibleComponent}
+        />
+{/*
+        <Interview
+          questionAndAnswers={this.state.qusAndch}
+          radioHandler={this.handleDiagnosisQuestionRadio}
+          continueInterview={this.continueInterview}
+          parseSymptoms={this.parseSymptoms}
+        />
+
+        <DisplayCondition
+          condition={this.state.conditions[0]}
+        /> */}
+
       </div>
     );
   }

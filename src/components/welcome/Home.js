@@ -5,11 +5,11 @@ import '../../scss/home.scss';
 const Home = ({switchVisibleComponent}) => {
 
   return (
-    <div id="HomeLogo">
+    <div id="home">
       <form>
         <img src="/assets/DrWebberLogo.png" />
-        <button onClick={switchVisibleComponent} value="PatientGender">Continue</button>
-        <div onClick={switchVisibleComponent} value="PatientGender" className="arrow bounce"></div>
+        <button className="button" onClick={switchVisibleComponent} value="PatientGender">Continue</button>
+        <div className="arrow bounce"></div>
       </form>
     </div>
   );

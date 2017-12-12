@@ -3,15 +3,11 @@
 @import 'questionnaire';
 @import 'button';
 
-html {
-   width:100%;
-   height:100%;
-   -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
-   background-size: cover;
-   background-color: #0095c8;
-}
+// html {
+//   overflow-y: hidden; // hide vertical
+//   overflow-x: hidden; // hide horizontal
+// }
+
 
 h1 {
   font-weight: bold;
@@ -32,8 +28,4 @@ input {
 
 * {
   font-family: 'Cabin', sans-serif;
-}
-
-.rangeslider-horizontal .rangeslider__fill {
-    background-color: #0095c8;
 }

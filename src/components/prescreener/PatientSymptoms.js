@@ -46,7 +46,7 @@ class PatientSymptoms extends React.Component {
     }
 
     return(
-      <div>
+      <div id="PatientSymptoms">
         <div className="questionnaire">
           <form onSubmit={this.props.parseSymptoms}>
             <h1>Enter your symptoms below</h1>

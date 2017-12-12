@@ -1,8 +1,18 @@
 @import './arrowBounce';
 
-img {
-    margin: auto;
-    position:fixed;
-    top: 25%;
-    left: 35%;
+#home {
+   height:100vh;
+   background-color: #0095c8;
+   margin: auto;
+   text-align: center;
+   img {
+     display: block;
+     margin: auto;
+   }
+
+
+   // img {
+   //    display: block;
+   //    margin: auto;
+   // }
 }

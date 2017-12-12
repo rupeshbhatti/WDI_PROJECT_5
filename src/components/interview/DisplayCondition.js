@@ -40,9 +40,9 @@ class DisplayCondition extends React.Component {
             }
             { this.state.condition.acuteness && this.state.condition.severity &&
               <div>
-                <h3>Acuteness: {(this.state.condition.acuteness).replace(/_/g, ' ')}</h3>
-                <h3>Severity: {this.state.condition.severity}</h3>
-                <h3>Suggested next steps: </h3>
+                <h2>Acuteness: {(this.state.condition.acuteness).replace(/_/g, ' ')}</h2>
+                <h2>Severity: {this.state.condition.severity}</h2>
+                <h2>Suggested next steps: </h2>
                 <p> {this.state.condition.extras.hint}</p>
               </div>
             }

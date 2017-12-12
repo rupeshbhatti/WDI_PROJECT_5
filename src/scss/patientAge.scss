@@ -1,5 +1,14 @@
 //@import './arrowBounce';
 
+#PatientAge {
+  height:100vh;
+  background-color: #eb3965;
+}
+
 .value {
   font-family: 'Cabin', sans-serif;
+}
+
+.rangeslider-horizontal .rangeslider__fill {
+    background-color: #0095c8;
 }
