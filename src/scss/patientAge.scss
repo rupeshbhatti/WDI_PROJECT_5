@@ -14,4 +14,10 @@
 
 .rangeslider-horizontal .rangeslider__fill {
     background-color: #03663f;
+    outline: none;
+}
+
+.rangeslider__handle {
+  outline: none;
+  font-family: 'Cabin', sans-serif;
 }
