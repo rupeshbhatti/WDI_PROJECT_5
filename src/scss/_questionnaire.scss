@@ -5,8 +5,13 @@
   border: teal solid 1px;
   border-radius: 9px;
   padding: 40px;
-  width: 75%;
-  margin: auto;
+  width: 60%;
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
   button {
     margin-top: 20px;

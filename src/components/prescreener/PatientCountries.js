@@ -47,7 +47,7 @@ class PatientCountries extends React.Component {
                 options={{
                   enableRegionInteractivity: true,
                   dataMode: 'regions',
-                  colorAxis: {minValue: 0, maxValue: 1, colors: ['#F2F3F4','#0095c8']},
+                  colorAxis: {minValue: 0, maxValue: 1, colors: ['#F2F3F4','#0e6272']},
                   legend: 'none',
                   tooltip: { trigger: 'none' }
                 }}

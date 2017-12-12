@@ -9,7 +9,7 @@ const Home = ({switchVisibleComponent}) => {
       <form>
         <img src="/assets/DrWebberLogo.png" />
         <div id="strapline">
-          <label className="strap">The future of healthcare is here.</label>
+          <label className="strap">The future of healthcare</label>
         </div>
         <button className="homebutton" onClick={switchVisibleComponent} value="PatientGender">Begin</button>
         <div className="arrow bounce"></div>
