@@ -8,7 +8,7 @@ const Home = ({switchVisibleComponent}) => {
     <div id="home">
       <form>
         <img src="/assets/DrWebberLogo.png" />
-        <button className="button" onClick={switchVisibleComponent} value="PatientGender">Continue</button>
+        <button className="homebutton" onClick={switchVisibleComponent} value="PatientGender">Begin</button>
         <div className="arrow bounce"></div>
       </form>
     </div>

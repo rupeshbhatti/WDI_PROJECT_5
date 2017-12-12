@@ -1,6 +1,6 @@
 @import 'fonts';
 
-.button {
+.button, .homebutton {
   border-radius: 4px;
   background-color: #0095c8;
   border: #FFFFFF solid 1px;
@@ -14,6 +14,11 @@
   margin: 5px;
   border-radius: 9px;
   font-family: 'Cabin', sans-serif;
+}
+
+.homebutton:hover {
+  background-color: #FFFFFF;
+  color: #0095c8;
 }
 
 .button span {
