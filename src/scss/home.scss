@@ -1,13 +1,28 @@
-@import './arrowBounce';
+@import 'arrowBounce';
+@import 'fonts';
 
 #home {
-   height:100vh;
-   background-color: #0095c8;
-   margin: auto;
-   text-align: center;
+  height:100vh;
+  background-color: #0095c8;
+  margin: auto;
+  text-align: center;
+
    img {
-     display: block;
-     margin: auto;
+    display: block;
+    margin: auto;
+   }
+
+   #strapline {
+     padding-bottom: 100px;
+   }
+
+   .strap {
+    color: #FFFFFF;
+    font-family: 'Cabin', sans-serif;
+    font-size: 2em;
+    display: inline-block;
+    padding: 0 50px;
+
    }
 
 
