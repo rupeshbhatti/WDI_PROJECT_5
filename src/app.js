@@ -57,6 +57,14 @@ class App extends React.Component {
       align: 'middle',
       duration: 1500
     });
+
+    if (element.id === 'Home' && this.state.should_stop){
+      ReactDOM.unmountComponentAtNode(document.getElementById('app'));
+      ReactDOM.render(
+        <App />,
+        document.getElementById('app')
+      );
+    }
   }
 
   handleGenderRadio = (e) => {
@@ -224,6 +232,7 @@ class App extends React.Component {
         <DisplayCondition
           should_stop={this.state.should_stop}
           condition={this.state.conditions[0]}
+          switchVisibleComponent={this.switchVisibleComponent}
         />
 
       </div>

@@ -85,6 +85,7 @@ class DisplayCondition extends React.Component {
             </div>
           </div>
         }
+        <button className="homebutton" onClick={this.props.switchVisibleComponent} value="Home">Try again?</button>
       </div>
     );
   }
