@@ -30,7 +30,19 @@ class App extends React.Component {
   switchVisibleComponent = (e) => {
     if (typeof e !== 'string') e.preventDefault();
     const element = document.getElementById( (typeof e === 'string') ? e : e.target.value );
+    const bgColors = {
+      Home: '#0095c8',
+      PatientGender: '#ef4272',
+      PatientAge: '#03663f',
+      PatientCountries: '#0e6272',
+      RiskFactors: '#F98405',
+      PatientSymptoms: '#3FCEC0',
+      Interview: '#B5A5F2',
+      DisplayCondition: '#0095c8'
+    };
 
+    element.style.backgroundColor = bgColors[element.id];
+    element.style.transition = 'background 2s ease';
     const newArr = [];
 
     newArr.push(e.target ? e.target.value : e );
