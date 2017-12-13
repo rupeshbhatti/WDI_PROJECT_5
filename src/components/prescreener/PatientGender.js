@@ -13,8 +13,10 @@ const PatientGender = ({ handleGenderRadio, switchVisibleComponent }) => {
           <h1>Select your gender</h1>
           <div className="content">
             <div id="icons">
-              <input type="radio" name="sex" value="male" onChange={handleGenderRadio} required /><Icon id="male" icon={man} size={128} />
-              <input type="radio" name="sex" value="female" onChange={handleGenderRadio} required /><Icon id="female" icon={woman} size={128} />
+              <input id="male" type="radio" name="sex" value="male" onChange={handleGenderRadio} required />
+              <label htmlFor="male"><Icon id="male" icon={man} size={128} /></label>
+              <input id="female" type="radio" name="sex" value="female" onChange={handleGenderRadio} required />
+              <label htmlFor="female"><Icon id="female" icon={woman} size={128} /></label>
               <br />
             </div>
           </div>
