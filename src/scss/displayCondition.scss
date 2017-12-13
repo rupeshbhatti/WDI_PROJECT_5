@@ -2,8 +2,68 @@
 
 #DisplayCondition {
   height:100vh;
-  background-color: #B5A5F2;
+  background-color: #0095c8;
   position: relative;
   text-align: center;
   margin: auto;
+  font-family: 'Cabin', sans-serif;
+
+  img {
+    height: 200px;
+    float:left;
+  }
+
+  .speech-bubble {
+  	position: relative;
+  	background: #0095c8;
+  	border-radius: .4em;
+    color: white;
+    margin-left: 50%;
+    text-align: left;
+    padding: 50px;
+    span {
+      color: gold;
+    }
+  }
+
+  span {
+    color: #0095c8;
+  }
+
+  h2 {
+    clear:left;
+  }
+
+  p.info {
+    text-align: left;
+  }
+
+  p.disclaimer {
+    text-align: left;
+    font-weight: bold;
+    font-size: small;
+  }
+
+  #severity {
+    h2 {
+      width: 50%;
+      float: right;
+    }
+  }
+
+  .speech-bubble:after {
+  	content: '';
+  	position: absolute;
+  	left: 0;
+  	top: 50%;
+  	width: 0;
+  	height: 0;
+  	border: 1.156em solid transparent;
+  	border-right-color: #0095c8;
+  	border-left: 0;
+  	border-bottom: 0;
+  	margin-top: -0.578em;
+  	margin-left: -1.156em;
+  }
+
 }

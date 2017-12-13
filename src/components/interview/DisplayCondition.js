@@ -40,24 +40,32 @@ class DisplayCondition extends React.Component {
           <div className="questionnaire">
             <div className="content">
               <img src="/assets/drWebber.png" />
-              <h1>I think you may have: {this.props.condition.common_name && this.props.condition.common_name}</h1>
+              <div className="speech-bubble">
+                <h1>I am <span>{ Math.ceil(this.props.condition.probability * 100) }%</span> certain you have
+                  <br/><span>{this.props.condition.common_name && this.props.condition.common_name}</span></h1>
+              </div>
+              <div>
+                { this.state.condition && this.state.condition.severity &&
+                  <h2>This has a <span>{this.state.condition.severity}</span> severity</h2>
+                }
+              </div>
               { this.state.wikiMedia_summary &&
                 <div>
                   <h2>Heres some more information about {this.props.condition.common_name}:</h2>
-                  <p>{ this.state.wikiMedia_summary }</p>
+                  <p className="info">{ this.state.wikiMedia_summary }</p>
                 </div>
               }
-              { this.state.condition && this.state.condition.acuteness && this.state.condition.severity &&
+              { this.state.condition &&
                 <div>
-                  <h2>Acuteness: {(this.state.condition.acuteness).replace(/_/g, ' ')}</h2>
-                  <h2>Severity: {this.state.condition.severity}</h2>
                   <h2>Suggested next steps: </h2>
-                  <p> {this.state.condition.extras.hint}</p>
+                  <p className="info"> {this.state.condition.extras.hint}</p>
                 </div>
               }
-              <h2>Probability: { Math.ceil(this.props.condition.probability * 100) }%</h2>
               {/* <GooglePlaces /> */}
-              <p>Please note that this advice is provided solely for informational purposes only. It does not constitute a qualified medical opinion.</p>
+              <div>
+                <br />
+                <p className="disclaimer">Please note that this advice is provided solely for informational purposes only. It does not constitute a qualified medical opinion.</p>
+              </div>
             </div>
           </div>
         }
