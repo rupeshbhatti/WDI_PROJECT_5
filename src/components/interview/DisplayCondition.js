@@ -3,7 +3,7 @@ import Axios from 'axios';
 
 import '../../scss/displayCondition.scss';
 
-import GooglePlaces from './GooglePlaces';
+//import GooglePlaces from './GooglePlaces';
 
 class DisplayCondition extends React.Component {
   state = {
@@ -18,7 +18,6 @@ class DisplayCondition extends React.Component {
       .catch(err => console.log(err));
   }
 
-  // componentDidMount(){
   getCondition(){
     Axios
       .get(`/api/getconditions/${this.props.condition.id}`)
@@ -29,10 +28,27 @@ class DisplayCondition extends React.Component {
       .catch(err => console.log(err));
   }
 
+  // getExplanation(){
+  //   const obj = Object.assign({}, this.props.consultationResults);
+  //   delete obj['qusAndch'];
+  //   delete obj['visibleComponent'];
+  //   delete obj['conditions'];
+  //   delete obj['should_stop'];
+  //
+  //   console.log('GETEXPLANATION',obj);
+  //   Axios
+  //     .post('/api/explain/', obj)
+  //     .then(explanation => console.log('infermedica final explanation',explanation))
+  //     .catch(err => console.log(err));
+  //
+  //     //{ message: 'target missing' }
   // }
+
 
   render(){
     if (this.props.should_stop && !this.state.condition) this.getCondition();
+    // this.getExplanation();
+
 
     return(
       <div id="DisplayCondition">

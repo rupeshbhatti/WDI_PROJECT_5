@@ -59,6 +59,7 @@ class PatientCountries extends React.Component {
               <br />
             </div>
             <hr />
+            <button className="countriesbutton" onClick={this.props.switchVisibleComponent} value="PatientAge">Back</button>
             <button className="countriesbutton" onClick={this.props.switchVisibleComponent} value="RiskFactors">Continue</button>
           </form>
         </div>

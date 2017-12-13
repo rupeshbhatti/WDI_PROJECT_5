@@ -59,6 +59,7 @@ class PatientSymptoms extends React.Component {
               />
               <br />
             </div>
+            <button className="symptomsbutton" onClick={this.props.switchVisibleComponent} value="RiskFactors">Back</button>
             <button className="symptomsbutton" disabled={!this.state.selectedOption}>Submit</button>
           </form>
         </div>

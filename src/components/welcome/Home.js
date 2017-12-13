@@ -5,7 +5,7 @@ import '../../scss/home.scss';
 const Home = ({switchVisibleComponent}) => {
 
   return (
-    <div id="home">
+    <div id="Home">
       <form>
         <img src="/assets/DrWebberLogo.png" />
         <div id="strapline">
