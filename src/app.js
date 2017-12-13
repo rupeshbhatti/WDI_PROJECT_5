@@ -28,12 +28,13 @@ class App extends React.Component {
   }
 
   switchVisibleComponent = (e) => {
-    e.preventDefault();
-    const element = document.getElementById(e.target.value);
+    if (typeof e !== 'string') e.preventDefault();
+    const element = document.getElementById( (typeof e === 'string') ? e : e.target.value );
 
     const newArr = [];
-    newArr.push(e.target.value);
-    e.target.value && this.setState(prevState => {
+
+    newArr.push(e.target ? e.target.value : e );
+    element && this.setState(prevState => {
       prevState.visibleComponent = prevState.visibleComponent.concat(newArr);
 
       return prevState;
@@ -45,7 +46,6 @@ class App extends React.Component {
       duration: 1500
     });
   }
-
 
   handleGenderRadio = (e) => {
     this.setState({ 'sex': e.target.value });
@@ -112,11 +112,6 @@ class App extends React.Component {
       .catch(err => console.log(err));
   }
 
-  // updateAppState = (PrescreenerComponentState) => {
-  //   this.setState(PrescreenerComponentState);
-  //   this.getDiagnosis(PrescreenerComponentState);
-  // }
-
   getDiagnosis = () => {
     const obj = Object.assign({}, this.state);
     delete obj['qusAndch'];
@@ -133,6 +128,7 @@ class App extends React.Component {
             return prevState;
           });
           this.setState({ should_stop: true });
+          this.switchVisibleComponent('DisplayCondition');
 
         } else {
           this.setState(prevState => {
@@ -141,6 +137,7 @@ class App extends React.Component {
             prevState.visibleComponent.push('Interview');
             return prevState;
           });
+          this.switchVisibleComponent('Interview');
         }
 
       })
@@ -204,7 +201,7 @@ class App extends React.Component {
           parseSymptoms={this.parseSymptoms}
           switchVisibleComponent={this.switchVisibleComponent}
         />
-{/*
+
         <Interview
           questionAndAnswers={this.state.qusAndch}
           radioHandler={this.handleDiagnosisQuestionRadio}
@@ -213,8 +210,9 @@ class App extends React.Component {
         />
 
         <DisplayCondition
+          should_stop={this.state.should_stop}
           condition={this.state.conditions[0]}
-        /> */}
+        />
 
       </div>
     );

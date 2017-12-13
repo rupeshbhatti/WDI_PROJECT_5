@@ -27,7 +27,6 @@ class PatientCountries extends React.Component {
       this.setState({ data });
 
       const countryCode = DataObj[row[1]];
-      //console.log('COUNTRYCODE IN PATIENTCOUNTRIES',countryCode);
       this.props.handleCountrySelector(countryCode);
     };
 

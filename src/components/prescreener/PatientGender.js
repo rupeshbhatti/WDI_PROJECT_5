@@ -20,7 +20,6 @@ const PatientGender = ({ handleGenderRadio, switchVisibleComponent }) => {
           </div>
           <hr />
           <button className="genderbutton" onClick={switchVisibleComponent} value="PatientAge">Continue</button>
-          {/* <button >Continue</button> */}
         </form>
       </div>
     </div>

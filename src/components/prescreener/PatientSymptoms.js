@@ -60,6 +60,7 @@ class PatientSymptoms extends React.Component {
               />
               <br />
             </div>
+            {/* <button className="symptomsbutton" onClick={this.props.switchVisibleComponent} value="Interview">Submit</button> */}
             <button className="symptomsbutton">Submit</button>
           </form>
         </div>
