@@ -51,7 +51,6 @@ class PatientSymptoms extends React.Component {
           <form onSubmit={this.props.parseSymptoms}>
             <h1>Enter your symptoms below</h1>
             <div className="content">
-              {/* <input type="text" name="symptoms" onChange={this.props.handleSymptomInput} /> */}
               <Select
                 name="symptoms"
                 value={this.state.selectedOption}
@@ -60,8 +59,7 @@ class PatientSymptoms extends React.Component {
               />
               <br />
             </div>
-            {/* <button className="symptomsbutton" onClick={this.props.switchVisibleComponent} value="Interview">Submit</button> */}
-            <button className="symptomsbutton">Submit</button>
+            <button className="symptomsbutton" disabled={!this.state.selectedOption}>Submit</button>
           </form>
         </div>
       </div>
