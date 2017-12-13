@@ -6,8 +6,13 @@ const Home = ({switchVisibleComponent}) => {
 
   return (
     <div id="Home">
+      <div className="socialButtons">
+        <div className="fb-like" data-href="https://infinite-scrubland-67453.herokuapp.com/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
+      </div>
       <form>
-        <img src="/assets/DrWebberLogo.png" />
+        <div>
+          <img src="/assets/DrWebberLogo.png" />
+        </div>
         <div id="strapline">
           <label className="strap">The future of healthcare</label>
         </div>

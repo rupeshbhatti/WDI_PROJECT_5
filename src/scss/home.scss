@@ -7,9 +7,17 @@
   margin: auto;
   text-align: center;
 
+  .socialButtons {
+    padding: 20px 20px 0 0;
+    display: block;
+    float: right;
+    height: 50px;
+  }
+
    img {
     display: block;
     margin: auto;
+    clear:right;
    }
 
    #strapline {
