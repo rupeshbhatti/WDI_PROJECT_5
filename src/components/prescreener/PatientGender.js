@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from 'react-icons-kit';
+import Icon  from 'react-icons-kit';
 import { man, woman } from 'react-icons-kit/icomoon';
 
 import '../../scss/patientGender.scss';

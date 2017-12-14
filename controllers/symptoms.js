@@ -5,7 +5,6 @@ function symptomsIndex(req,res,next){
     .find()
     .exec()
     .then(symptoms => {
-      //console.log(symptoms);
       res.json(symptoms);
     })
     .catch(next);

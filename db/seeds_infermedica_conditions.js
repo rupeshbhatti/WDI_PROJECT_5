@@ -1,11 +1,11 @@
-const rp = require('request-promise');
-const { dbURI } = require('../config/environment');
-const mongoose = require('mongoose');
+const rp         = require('request-promise');
+const { dbURI }  = require('../config/environment');
+const mongoose   = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 mongoose.connect(dbURI, { useMongoClient: true});
 
-const Condition = require('../models/condition');
+const Condition  = require('../models/condition');
 
 const infermedicaOptions = {
   method: 'GET',

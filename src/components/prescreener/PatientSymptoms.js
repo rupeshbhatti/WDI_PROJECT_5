@@ -1,6 +1,6 @@
-import React from 'react';
+import React  from 'react';
 import Select from 'react-select';
-import Axios from 'axios';
+import Axios  from 'axios';
 import 'react-select/dist/react-select.css';
 
 import '../../scss/patientSymptoms.scss';
@@ -15,7 +15,6 @@ class PatientSymptoms extends React.Component {
     Axios
       .get('/api/getsymptoms/')
       .then(symptoms => {
-        //console.log(symptoms);
         this.setState({ allSymptoms: { value: symptoms.data } });
       })
       .catch(err => console.log(err));
@@ -36,12 +35,10 @@ class PatientSymptoms extends React.Component {
 
     if (options){
       finalOptions = options.map( (option) =>
-        Object.assign(
-          {},
-          {
-            value: option.common_name,
-            label: option.common_name
-          }
+        Object.assign({}, {
+          value: option.common_name,
+          label: option.common_name
+        }
         ));
     }
 

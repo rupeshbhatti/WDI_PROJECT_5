@@ -9,7 +9,7 @@ const infermedicaOptions = {
   json: true
 };
 
-// /parse
+// calls the /parse endpoint on Infermedica
 
 function getParsedSymptoms(req,res){
   infermedicaOptions.uri = 'https://api.infermedica.com/v2/parse/';
@@ -55,7 +55,6 @@ function explain(req,res){
 
   rp(infermedicaOptions)
     .then(data => {
-      console.log('EXPLAIN----------------------------------------------',data);
       return res.status(200).json(data);
     })
     .catch(err => console.log(err));

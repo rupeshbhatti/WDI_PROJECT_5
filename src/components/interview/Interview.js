@@ -23,7 +23,6 @@ const Interview = ({ questionAndAnswers, radioHandler, continueInterview }) => {
                 </div>
               )}
               <hr />
-              {/* <input type="submit" value="Continue" /> */}
               <button className="interviewbutton">Continue</button>
             </div>
           </form>

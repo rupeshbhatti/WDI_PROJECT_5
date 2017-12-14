@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router();
+const router  = express.Router();
 
 const infermedicaProxies = require('../controllers/infermedicaProxies');
 
@@ -20,15 +20,14 @@ router.route('/explain/')
   .post(infermedicaProxies.explain);
 
 
-// Condition routes via mongo
+// Condition route via mongo
 router.route('/getconditions/:id')
   .get(conditions.conditionsShow);
 
 
-// Labtest routes via mongo
+// Labtest route via mongo
 router.route('/getlabtests/:id')
   .get(labtests.labtestsShow);
-
 
 // Symptom routes via mongo
 router.route('/getsymptoms/:id')

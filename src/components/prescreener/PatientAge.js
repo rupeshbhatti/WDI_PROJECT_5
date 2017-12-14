@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import Slider from 'react-rangeslider';
 
 import '../../scss/patientAge.scss';

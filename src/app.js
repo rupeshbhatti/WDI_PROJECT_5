@@ -1,12 +1,9 @@
-import React from 'react';
+import React    from 'react';
 import ReactDOM from 'react-dom';
-import Axios from 'axios';
+import Axios    from 'axios';
 import scollToComponent from 'react-scroll-to-component';
 
-import './scss/style.scss';
-
 import Home from './components/welcome/Home';
-//import Navbar from './components/utilities/Navbar';
 import PatientGender from './components/prescreener/PatientGender';
 import PatientAge from './components/prescreener/PatientAge';
 import PatientCountries from './components/prescreener/PatientCountries';
@@ -14,7 +11,8 @@ import RiskFactors from './components/prescreener/RiskFactors';
 import PatientSymptoms from './components/prescreener/PatientSymptoms';
 import Interview from './components/interview/Interview';
 import DisplayCondition from './components/interview/DisplayCondition';
-//import GooglePlaces from './components/interview/GooglePlaces';
+
+import './scss/style.scss';
 
 class App extends React.Component {
   state = {
@@ -102,7 +100,6 @@ class App extends React.Component {
 
       prevState.evidence.push({ id, choice_id: value, initial: true });
 
-
       return prevState;
     });
   }
@@ -125,7 +122,6 @@ class App extends React.Component {
           this.setState({ evidence: this.state.evidence.concat(evidence) });
         }
         delete this.state['text'];
-        //this.props.updateAppState(this.state);
         this.getDiagnosis();
 
       })
@@ -189,9 +185,7 @@ class App extends React.Component {
     });
   }
 
-
   render() {
-
     return (
       <div>
         <Home
@@ -234,7 +228,6 @@ class App extends React.Component {
           condition={this.state.conditions[0]}
           switchVisibleComponent={this.switchVisibleComponent}
         />
-
       </div>
     );
   }

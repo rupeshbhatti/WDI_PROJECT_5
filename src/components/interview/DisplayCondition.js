@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
-import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 import '../../scss/displayCondition.scss';
 
@@ -29,7 +29,7 @@ class DisplayCondition extends React.Component {
   }
 
   printDocument() {
-    const input = document.getElementById('Home');
+    const input = document.getElementById('DisplayCondition');
     const divHeight = document.documentElement.clientHeight; //input.offsetHeight
     const divWidth = document.documentElement.clientWidth; //input.offsetWidth
     const ratio = divHeight / divWidth;
@@ -46,11 +46,8 @@ class DisplayCondition extends React.Component {
       });
   }
 
-
   render(){
     if (this.props.should_stop && !this.state.condition) this.getCondition();
-    // this.getExplanation();
-
 
     return(
       <div id="DisplayCondition">
