@@ -11,7 +11,7 @@ const errorHandler    = require('./lib/errorHandler');
 const morgan          = require('morgan');
 const bodyParser      = require('body-parser');
 const { port, dbURI, env } = require('./config/environment');
-const router = require('./config/routes');
+const router          = require('./config/routes');
 
 mongoose.connect(dbURI, { useMongoClient: true });
 

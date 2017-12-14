@@ -20,6 +20,8 @@
     "bcrypt": "^1.0.3",
     "body-parser": "^1.18.1",
     "express": "^4.15.4",
+    "fast-csv": "^2.4.1",
+    "fs": "^0.0.1-security",
     "jsonwebtoken": "^8.1.0",
     "mongoose": "^4.11.12",
     "mongoose-unique-validator": "^1.0.6",
