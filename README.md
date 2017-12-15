@@ -21,6 +21,10 @@ In the final week of the Web Development Immersive course at General Assembly Lo
 * **react-select** for the symptom finder input field in the prescreener. This react-select input field pulls in selectable symptom options (symptoms recognised by the Infermedica API) from my mongo database and filters symptoms with each key stroke (using show as you type / autocomplete)
 * **html2canvas** and **jsPDF** for the pdf download functionality available on the DisplayCondition component (the final output which shows Dr. Webber's diagnosis). These two packages are used together. **html2canvas** takes the rendered page and creates a canvas (a screenshot) and then feeds this into **jsPDF** to create the PDF document
 
+# Architecture
+
+![TechArch](/screenshots/TechArch.jpg)
+
 # Screenshots
 
 ![Screenshot1](/screenshots/Screenshot1.png)
