@@ -2,7 +2,7 @@
 # WDI Final Project: MERN Stack SPA
 
 #Heroku Link
-[https://infinite-scrubland-67453.herokuapp.com/](Dr.Webber)
+[https://infinite-scrubland-67453.herokuapp.com/](https://infinite-scrubland-67453.herokuapp.com/)
 
 ## Introduction
 

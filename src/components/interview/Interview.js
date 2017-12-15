@@ -15,7 +15,7 @@ const Interview = ({ questionAndAnswers, radioHandler, continueInterview }) => {
               <h1>{ questionAndAnswers[index].question }</h1>
 
               { questionAndAnswers[index].choices.map((mainchoice,i) =>
-                <div key={i}>
+                <div className="questionContainer" key={i}>
                   <h2 >{ mainchoice.name }</h2>
                   { mainchoice.choices.map((choice, j) => {
                     return <div key={j}><input type="radio" name={mainchoice.id} id={mainchoice.id} value={choice.id} onChange={radioHandler} required/><label htmlFor={mainchoice.id}>{choice.label}</label></div>;
